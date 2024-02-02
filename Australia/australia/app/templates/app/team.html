@@ -1,0 +1,264 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Team
+{% endblock %}
+{% block body %}
+<div class="breadcrumbs">
+  <div class="region region__breadcrumbs">
+
+    <div class="breadcrumb-content-inner">
+      <div class="gva-breadcrumb-content">
+        <div id="block-breadcrumbs"
+          class="text-light block gva-block-breadcrumb block-system block-system-breadcrumb-block no-title">
+         
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for item in teamImg %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <img src="{{ item.breadcrumb_img.url }}" class="d-block w-100" alt="{{ item.alt_text }}">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Home/Team</h5>
+                    <p>{{ item.title }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<div role="main" class="main main-page has-breadcrumb">
+
+  <div class="clearfix"></div>
+
+
+  <div class="help gav-help-region">
+    <div class="container">
+      <div class="content-inner">
+        <div class="region region__help">
+          <div data-drupal-messages-fallback class="hidden"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="clearfix"></div>
+
+  <div id="content" class="content content-full">
+    <div class="container-full container-bg">
+      <div class="content-main-inner">
+        <div id="page-main-content" class="main-content">
+          <div class="main-content-inner">
+            <div class="content-main">
+              <div class="region region__content">
+                <div id="block-mainpagecontent" class="block block-system block-system-main-block no-title">
+
+
+                  <div class="content block-content">
+                    <!-- Start Display article for detail page -->
+
+                    <div data-history-node-id="100" role="article" class="node node--type-page node--view-mode-full">
+                      <div class="header-title">
+                        <div class="container">
+                          <h2 class="title"><span>
+                              <span>Team</span>
+                            </span></h2>
+                        </div>
+                      </div>
+                      <div class="node__content clearfix">
+                        <div class="gavias-builder--content">
+                          <div class="gbb-row-wrapper">
+                            <div class=" gbb-row  bg-size-cover el-146415 " style="">
+                            
+                            </div>
+                          </div>
+
+                          <div class="gbb-row-wrapper">
+                            <div class=" gbb-row  bg-size-default el-41112135 " style="">
+                              <div class="">
+                                <div class="bb-container container">
+                                  <div class="row row-wrapper">
+                                    <div
+                                      class="gsc-column el-41819373 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12   ">
+                                      <div class="column-inner  bg-size-cover ">
+                                        <div class="column-content-inner">
+                                          <div>
+                                            <div
+                                              class="widget block clearfix gsc-block-view  gsc-block-drupal block-view title-align-left  text-dark remove-margin-off">
+                                              <div class="views-element-container">
+                                                <div
+                                                  class="gva-view js-view-dom-id-6c8af4c63cdcf67fa99bf6e291e333d2b7577da917f822cbd8bfefd8977fb0f1">
+
+
+
+
+
+
+
+
+                                                  <div data-drupal-views-infinite-scroll-content-wrapper
+                                                    class="views-infinite-scroll-content-wrapper clearfix">
+
+
+                                                    <div class="views-view-grid horizontal clearfix">
+
+                                                      <div class="views-row row clearfix row-1">
+                                            {% for item in team %}
+                                                        <div class="views-col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+                                                          <!-- Start Display article for teaser page -->
+
+                                                          <div data-history-node-id="59" role="article"
+                                                            class="node node--type-team node--promoted node--view-mode-teaser-2 clearfix">
+                                                            <div class="team-block team-two__single">
+                                                              <div class="team-two__image">
+
+                                                                <div
+                                                                  class="field field--name-field-team-image field--type-image field--label-hidden field__item">
+                                                                  <div class="item-image">
+                                                                    <a href="#"><img loading="lazy" src="{{item.team_member_photo.url}}" alt="" style="height: 300px; width: -webkit-fill-available;" />
+
+                                                                    </a>
+                                                                  </div>
+                                                                </div>
+
+                                                                <div class="team-two__socials">
+                                                                  <a class="gva-social" href="{{item.facebook_link}}" target="_blank"><i
+                                                                      class="fab fa-facebook"></i></a>
+
+
+
+                                                                  <a class="gva-social" href="{{item.instagram_link}}" target="_blank"><i
+                                                                      class="fab fa-instagram"></i></a>
+
+                                                                </div>
+                                                              </div>
+                                                              <div class="team-two__content">
+                                                                <h3 class="team-two__name"><a href="node/59.html">{{item.name}}</a></h3>
+
+                                                                <div class="team-two__job">{{item.member_designation}}</div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <!-- End Display article for teaser page -->
+
+
+                                                        </div>
+                                                      
+                                                                 {%endfor%}
+                                                      </div>
+
+
+
+
+                                                    </div>
+                                                  </div>
+
+
+                                                  {% comment %} <ul class="js-pager__items pager"
+                                                    data-drupal-views-infinite-scroll-pager>
+                                                    <li class="pager__item">
+                                                      <a class="button" href="team2679.html?page=1"
+                                                        title="Load more items" rel="next">Load More</a>
+                                                    </li>
+                                                  </ul> {% endcomment %}
+
+
+                                                  <nav class="pager">
+                                                    <ul class="pager__items js-pager__items">
+                                                        {% for page_num in team.paginator.page_range %}
+                                                            <li class="pager__item{% if page_num == team.number %} is-active{% endif %}">
+                                                                <a href="?page={{ page_num }}" title="{% if page_num == team.number %}Current page{% else %}Go to page {{ page_num }}{% endif %}">
+                                                                    <span class="visually-hidden">
+                                                                        {% if page_num == team.number %}Current page{% else %}Page{% endif %}
+                                                                    </span>{{ page_num }}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                
+                                                        {% if team.has_next %}
+                                                            <li class="pager__item pager__item--next">
+                                                                <a href="?page={{ team.next_page_number }}" title="Go to next page" rel="next">
+                                                                    <span class="visually-hidden">Next page</span>
+                                                                    <span aria-hidden="true">Next ›</span>
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                
+                                                        {% if team.has_previous %}
+                                                            <li class="pager__item pager__item--last">
+                                                                <a href="?page={{ team.paginator.num_pages }}" title="Go to last page">
+                                                                    <span class="visually-hidden">Last page</span>
+                                                                    <span aria-hidden="true">Last »</span>
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </nav>
+                                                
+
+
+
+
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+</div>
+{%endblock%}

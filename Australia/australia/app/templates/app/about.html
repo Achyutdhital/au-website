@@ -1,0 +1,433 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+About
+{% endblock %}
+{% block body %}
+<div class="breadcrumbs">
+  <div class="region region__breadcrumbs">
+
+    <div class="breadcrumb-content-inner">
+      <div class="gva-breadcrumb-content">
+        <div id="block-breadcrumbs"
+          class="text-light block gva-block-breadcrumb block-system block-system-breadcrumb-block no-title">
+         
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for item in aboutImg %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <img src="{{ item.breadcrumb_img.url }}" class="d-block w-100" alt="{{ item.alt_text }}">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Home/About</h5>
+                    <p>{{ item.title }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+        <div role="main" class="main main-page has-breadcrumb">
+          <div class="clearfix"></div>
+
+          <div class="help gav-help-region">
+            <div class="container">
+              <div class="content-inner">
+                <div class="region region__help">
+                  <div data-drupal-messages-fallback class="hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="clearfix"></div>
+
+          <div id="content" class="content content-full">
+            <div class="container-full container-bg">
+              <div class="content-main-inner">
+                <div id="page-main-content" class="main-content">
+                  <div class="main-content-inner">
+                    <div class="content-main">
+                      <div class="region region__content">
+                        <div id="block-mainpagecontent" class="block block-system block-system-main-block no-title">
+                          <div class="content block-content">
+                            <!-- Start Display article for detail page -->
+
+                            <div data-history-node-id="99" role="article"
+                              class="node node--type-page node--view-mode-full">
+                              <div class="header-title">
+                                <div class="container">
+                                  <h2 class="title"><span><span>About Us</span></span></h2>
+                                </div>
+                              </div>
+                              <div class="node__content clearfix">
+                                <div class="gavias-builder--content">
+                                  <div class="gbb-row-wrapper">
+                                    <div class="gbb-row bg-size-cover el-56241465" style="">
+                                      <div class="">
+                                        <div class="bb-container container">
+                                          <div class="row row-wrapper">
+                                            <div
+                                              class="gsc-column el-48249591 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                              <div class="column-inner bg-size-cover">
+                                                <div class="column-content-inner">
+                                                  <div class="widget gsc-heading gsc-heading__align-center style-1">
+                                                    <div class="gsc-heading__content clearfix">
+                                                      <div class="gsc-heading__sub-title fweight-500">
+                                                        <!-- <span>Testimonial</span> -->
+                                                      </div>
+                                                      <h2 class="gsc-heading__title fweight-600"><span>What are we aiming for?</span></h2>
+                                                      <div class="gsc-heading__desc">
+                                                        <!-- <p>Trusted by some of the world&rsquo;s biggest brands.</p> -->
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="clearfix"></div>
+                                                  <div>
+                                                    <div
+                                                      class="widget block clearfix gsc-block-view gsc-block-drupal block-view title-align-left text-dark remove-margin-off">
+                                                      <div class="views-element-container">
+                                                        <div
+                                                          class="gva-view js-view-dom-id-945d78d58b6fe1fb0317d9eb157657500ed4f138192887f71ce5963d25eae3dd">
+                                                          <!-- <div class="owl-carousel init-carousel-owl" data-items="1"
+                                                            data-items_lg="1" data-items_md="1" data-items_sm="1"
+                                                            data-items_xs="1" data-loop="1" data-speed="800"
+                                                            data-auto_play="1" data-auto_play_speed="1000"
+                                                            data-auto_play_timeout="3000" data-auto_play_hover="1"
+                                                            data-navigation="0" data-rewind_nav="0" data-pagination="1"
+                                                            data-mouse_drag="1" data-touch_drag="1"> -->
+                                                            <div>
+                                                            {%for item in about %}
+                                                            
+                                                            <div class="item">
+                                                              <div>
+                                                                <article class="testimonial-node-2">
+                                                                  <div class="testimonial-content">
+                                                                    <div class="content-body">
+                                                                      <!-- <div class="avatar">
+                                                                        <div class="item-image">
+                                                                          <img loading="lazy"
+                                                                            src="sites/default/files/testimonial/avatar-4.jpg"
+                                                                            alt="" />
+                                                                        </div>
+
+                                                                        <span class="quote-icon">&quot;</span>
+                                                                      </div> -->
+                                                                      <div class="content-inner">
+                                                                        <div class="">{{item.description|safe}}.</div>
+                                                                        <div class="info">
+                                                                          <!-- <div class="name">Cristiano Ronaldo</div>
+                                                                          <div class="job">Client of notech company
+                                                                          </div> -->
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </article>
+                                                              </div>
+                                                            </div>
+                                                  {%endfor%}
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {%for about in about %}
+                                  <div class="gbb-row-wrapper">
+                                    <div class=" gbb-row  bg-size-default row-style-1 el-13397100 "  style="background-color:#f7f7f9; background-image:url('sites/default/files/gbb-uploads/bg-2.png'); background-repeat:no-repeat; background-position:center top" >
+                                      <div class="pt-4">  
+                                        <div class="bb-container container">
+                                            <div class="row row-wrapper">
+                                              <div  class="gsc-column el-68981836 col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12   ">
+                                  <div class="column-inner  bg-size-cover ">
+                                    <div class="column-content-inner">
+                                      
+                                                 <div class="widget milestone-one__single  text-dark" >
+                                                             <div class="milestone-one__icon"><span class="icon icon-t-work"></span></div>
+                                              
+                                      <div class="milestone-one__content">
+                                        
+                                        <div class="milestone-one__number-inner">
+                                        <span class="milestone-one__number">{{about.intStudent}}</span>
+                                        <span class="milestone-one__symbol">+</span>
+                                        </div>
+                                        
+                                        <h3 class="milestone-one__text">International Student</h3>
+                                      </div>
+                                      </div>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                    </div>
+                                    </div>
+                                  
+                                  
+                                  
+                                  </div>
+                                  <div class="gsc-column el-97139268 col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12   ">
+                                    <div class="column-inner  bg-size-cover ">
+                                    <div class="column-content-inner">
+                                  
+                                      <div class="widget milestone-one__single  text-dark">
+                                      <div class="milestone-one__icon"><span class="icon icon-t-work"></span></div>
+                                  
+                                      <div class="milestone-one__content">
+                                        <div class="milestone-one__number-inner">
+                                        <span class="milestone-one__number">{{about.scholarshipApproved}}</span>
+                                        </div>
+                                        <h3 class="milestone-one__text">Scholarship Approved</h3>
+                                      </div>
+                                      </div>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                    </div>
+                                    </div>
+                                  
+                                  
+                                  
+                                  </div>
+                                  <div class="gsc-column el-53008470 col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12   ">
+                                    <div class="column-inner  bg-size-cover ">
+                                    <div class="column-content-inner">
+                                  
+                                      <div class="widget milestone-one__single  text-dark">
+                                      <div class="milestone-one__icon"><span class="icon icon-t-work"></span></div>
+                                  
+                                      <div class="milestone-one__content">
+                                        <div class="milestone-one__number-inner">
+                                        <span class="milestone-one__number">{{about.studentEnrolled}}</span>
+                                        </div>
+                                        <h3 class="milestone-one__text">Students Enrolled</h3>
+                                      </div>
+                                      </div>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                    </div>
+                                    </div>
+                                  
+                                  
+                                  
+                                  </div>
+                                  <div class="gsc-column el-14076237 col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12   ">
+                                    <div class="column-inner  bg-size-cover ">
+                                    <div class="column-content-inner">
+                                  
+                                      <div class="widget milestone-one__single  text-dark">
+                                      <div class="milestone-one__icon"><span class="icon icon-t-work"></span></div>
+                                  
+                                      <div class="milestone-one__content">
+                                        <div class="milestone-one__number-inner">
+                                        <span class="milestone-one__number">{{about.representInstitute}}</span>
+                                        </div>
+                                        <h3 class="milestone-one__text">Represent Institute</h3>
+                                      </div>
+                                      </div>
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                    </div>
+                                    </div>
+                                  
+                                  
+                                  
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  
+                                    {%endfor%}
+                                  {% comment %} <div class="gbb-row-wrapper">
+                                    <div class="gbb-row bg-size-default el-18272623"
+                                      style="background-color:#F7F7F9; background-image:url('sites/default/files/gbb-uploads/bg-line-2.png'); background-repeat:no-repeat; background-position:left top">
+                                      <div class="bb-inner default">
+                                        <div class="bb-container container">
+                                          <div class="row row-wrapper">
+                                            <div
+                                              class="gsc-column el-54505484 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                              <div class="column-inner bg-size-cover">
+                                                <div class="column-content-inner">
+                                                  <div>
+                                                    <div
+                                                      class="widget block clearfix gsc-block-view gsc-block-drupal block-view title-align-left text-dark remove-margin-off">
+                                                      <div class="views-element-container">
+                                                        <div
+                                                          class="gva-view js-view-dom-id-85241d79520c06964ab77d102afbe93b6f1eb3b4250900ffe20903455eaae8ec">
+                                                          <div class="owl-carousel init-carousel-owl" data-items="1"
+                                                            data-items_lg="1" data-items_md="1" data-items_sm="1"
+                                                            data-items_xs="1" data-loop="1" data-speed="1200"
+                                                            data-auto_play="0" data-auto_play_speed="2000"
+                                                            data-auto_play_timeout="5000" data-auto_play_hover="1"
+                                                            data-navigation="0" data-rewind_nav="0" data-pagination="0"
+                                                            data-mouse_drag="1" data-touch_drag="1">
+                                                            {% for item in testimonail %}
+                                                            <div class="item">
+                                                              <div>
+                                                                <article class="testimonial-three__single">
+                                                                  <div class="testimonial-three__content">
+                                                                    <div class="testimonial-three__avatar">
+                                                                      <div class="item-image">
+                                                                        <img loading="lazy"
+                                                                          src="{{item.image.url}}"
+                                                                          alt="" />
+                                                                      </div>
+
+                                                                      <span
+                                                                        class="testimonial-three__quote-icon">&quot;</span>
+                                                                    </div>
+                                                                    <div class="testimonial-three__content-inner">
+                                                                      <div class="testimonial-three__quote">{{item.description}}</div>
+                                                                      <div class="testimonial-three__info">
+                                                                        <h3 class="testimonial-three__name">{{item.name}}</h3>
+                                                                        <div class="testimonial-three__job">{{item.designation}}</div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </article>
+                                                              </div>
+                                                            </div>
+                                                    {% endfor%}
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div> {% endcomment %}
+                                
+                                  <div class="gbb-row-wrapper">
+                                    <div class="gbb-row bg-size-cover el-17281229 ">
+                                      <div class="">
+                                        <div class="bb-container container">
+
+                                          <div class="row row-wrapper">
+                                            <div
+                                              class="gsc-column el-18644142 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                              <div class="column-inner bg-size-cover">
+                                                <div class="column-content-inner">
+                                                  <div>
+                                                    <div
+                                                      class="widget block clearfix gsc-block-view gsc-block-drupal block-view title-align-left text-dark remove-margin-off">
+                                                      <div class="block block-custom-text ">
+                                                        <div class="block-content">
+                                                          <div class="business-heading__one"><span>TESTIMONIAL</span></div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="views-element-container">
+                                                        <div
+                                                          class="gva-view js-view-dom-id-0d5647532b7d2ec5e6bad413a15a28f092850334c2a04e4d4fa0c57db1a5e88b">
+                                                          <div class="owl-carousel init-carousel-owl" data-items="3"
+                                                            data-items_lg="3" data-items_md="3" data-items_sm="2"
+                                                            data-items_xs="1" data-loop="1" data-speed="1000"
+                                                            data-auto_play="1" data-auto_play_speed="2000"
+                                                            data-auto_play_timeout="5000" data-auto_play_hover="1"
+                                                            data-navigation="0" data-rewind_nav="0" data-pagination="0"
+                                                            data-mouse_drag="1" data-touch_drag="1">
+
+                                                            {% for item in testimonail %}
+                                                            <div class="item">
+                                                              <div>
+                                                                <article class="testimonial-one__single">
+                                                                  <div class="testimonial-one__content">
+                                                                    <span class="testimonial-one__icon"></span>
+                                                                    <div class="testimonial_one__content-inner">
+                                                                      <div class="testimonial-one__quote">{{item.description}}</div>
+                                                                    </div>
+                                                                    <div class="testimonial-one__avatar">
+                                                                      <div class="item-image">
+                                                                        <img loading="lazy"
+                                                                          src="sites/default/files/testimonial/avatar-4.jpg"
+                                                                          alt="" />
+                                                                      </div>
+                                                                    </div>
+                                                                    <div class="testimonial-one__info">
+                                                                      <h3 class="testimonial-one__name">{{item.name}}</h3>
+                                                                      <div class="testimonial-one__job">{{item.designation}}</div>
+                                                                    </div>
+                                                                  </div>
+                                                                </article>
+                                                              </div>
+                                                            </div>
+                                                            {%endfor%}
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div style="background-repeat: no-repeat;background-position:center top;"
+                                        class="gva-parallax-inner skrollable skrollable-between bg-size-cover"
+                                        data-bottom-top="top: -40%;" data-top-bottom="top: 20%;"></div>
+                                    </div>
+                                  </div>
+                                
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

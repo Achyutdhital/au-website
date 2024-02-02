@@ -1,0 +1,257 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Service
+{% endblock %}
+{% block body %}
+<div class="breadcrumbs">
+      <div class="region region__breadcrumbs">
+    
+        <div class="breadcrumb-content-inner">
+          <div class="gva-breadcrumb-content">
+            <div id="block-breadcrumbs"
+              class="text-light block gva-block-breadcrumb block-system block-system-breadcrumb-block no-title">
+             
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  {% for item in serviceImg %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                      <img src="{{ item.breadcrumb_img.url }}" class="d-block w-100" alt="{{ item.alt_text }}">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Home/Service</h5>
+                        <p>{{ item.title }}</p>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              
+    
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    
+      </div>
+    
+    </div>
+    
+
+<div role="main" class="main main-page has-breadcrumb">
+
+      <div class="clearfix"></div>
+
+
+      <div class="help gav-help-region">
+            <div class="container">
+                  <div class="content-inner">
+                        <div class="region region__help">
+                              <div data-drupal-messages-fallback class="hidden"></div>
+
+                        </div>
+
+                  </div>
+            </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="clearfix"></div>
+
+      <div id="content" class="content content-full">
+            <div class="container-full container-bg">
+                  <div class="content-main-inner">
+                        <div id="page-main-content" class="main-content">
+                              <div class="main-content-inner">
+                                    <div class="content-main">
+                                          <div class="region region__content">
+                                                <div id="block-mainpagecontent"
+                                                      class="block block-system block-system-main-block no-title">
+
+
+                                                      <div class="content block-content">
+                                                            <!-- Start Display article for detail page -->
+
+                                                            <div data-history-node-id="70" role="article"
+                                                                  class="node node--type-page node--view-mode-full">
+                                                                  <div class="header-title">
+                                                                        <div class="container">
+                                                                              <h2 class="title">
+                                                                                    <span>
+                                                                                          <span>Services
+                                                                                                </span>
+                                                                                    </span>
+                                                                              </h2>
+                                                                        </div>
+                                                                  </div>
+                                                                  <div class="node__content clearfix">
+                                                                        <div class="gavias-builder--content">
+                                                                              <div class="gbb-row-wrapper">
+
+                                                                              </div>
+
+                                                                              <div class="gbb-row-wrapper">
+                                                                                    <div class=" gbb-row  bg-size-cover el-67565703 "
+                                                                                      >
+                                                                                          <div class="">
+                                                                                                <div
+                                                                                                      class="bb-container container">
+                                                                                                      <div
+                                                                                                            class="row row-wrapper">
+                                                                                                            {% for item in service%}
+                                                                                                            <div
+                                                                                                                  class="gsc-column el-12253355 col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12   ">
+                                                                                                                  <div
+                                                                                                                        class="column-inner  bg-size-cover ">
+                                                                                                                        <div
+                                                                                                                              class="column-content-inner">
+
+                                                                                                                              <div
+                                                                                                                                    class="el-feature-block  style-1">
+                                                                                                                                    <div
+                                                                                                                                          class="feature-one__single">
+                                                                                                                                          <div
+                                                                                                                                                class="feature-one__img">
+                                                                                                                                                <img src="{{item.image.url}}"
+                                                                                                                                                      alt="Manage IT services"
+                                                                                                                                                      style="height:400px" />
+                                                                                                                                          </div>
+
+                                                                                                                                          <h3
+                                                                                                                                                class="feature-one__title">
+                                                                                                                                                {{item.title}}
+                                                                                                                                          </h3>
+                                                                                                                                          <div
+                                                                                                                                                class="feature-one__content">
+                                                                                                                                                <div
+                                                                                                                                                      class="feature-one__content-inner">
+                                                                                                                                                      <!-- <span
+                                                                                                                                                                                    class="feature-one__content-icon"><i
+                                                                                                                                                                                          class="icon-t-system"></i></span> -->
+                                                                                                                                                      <h3
+                                                                                                                                                            class="feature-one__content-title">
+                                                                                                                                                            {{item.title}}
+                                                                                                                                                      </h3>
+                                                                                                                                                      <div
+                                                                                                                                                            class="feature-one__content-desc">
+                                                                                                                                                            {{item.description|safe|truncatewords:10}}
+                                                                                                                                                      </div>
+                                                                                                                                                      <div
+                                                                                                                                                            class="feature-one__content-action">
+                                                                                                                                                            <a class="btn-inline"
+                                                                                                                                                                  href="{% url 'app:serviceDetail' item.service_slug %}"><span>Read
+                                                                                                                                                                        more</span></a>
+                                                                                                                                                      </div>
+                                                                                                                                                </div>
+                                                                                                                                          </div>
+                                                                                                                                          <a class="feature-one__overlay-link"
+                                                                                                                                                href="{% url 'app:serviceDetail' item.service_slug %}"></a>
+                                                                                                                                    </div>
+
+
+
+
+
+
+
+
+
+                                                                                                                              </div>
+
+                                                                                                                        </div>
+                                                                                                                  </div>
+
+
+
+                                                                                                            </div>
+                                                                                                            {% endfor%}
+                                                                                                      </div>
+                                                                                                      <!-- Your existing HTML code -->
+
+                                                                                                      <nav
+                                                                                                            class="pager">
+                                                                                                            <ul
+                                                                                                                  class="pager__items js-pager__items">
+                                                                                                                  {% for page_num in service.paginator.page_range %}
+                                                                                                                  <li
+                                                                                                                        class="pager__item{% if page_num == service.number %} is-active{% endif %}">
+                                                                                                                        <a href="?page={{ page_num }}"
+                                                                                                                              title="{% if page_num == service.number %}Current page{% else %}Go to page {{ page_num }}{% endif %}">
+                                                                                                                              <span
+                                                                                                                                    class="visually-hidden">
+                                                                                                                                    {%  if page_num == service.number %}Currentpage{% else%}Page{% endif%}
+                                                                                                                              </span>{{page_num}}</a>
+                                                                                                                  </li>
+                                                                                                                  {%endfor %}
+
+                                                                                                                  {% if service.has_next %}
+                                                                                                                  <li
+                                                                                                                        class="pager__item pager__item--next">
+                                                                                                                        <a href="?page={{ service.next_page_number }}"
+                                                                                                                              title="Go to next page"
+                                                                                                                              rel="next">
+                                                                                                                              <span
+                                                                                                                                    class="visually-hidden">Next
+                                                                                                                                    page</span>
+                                                                                                                              <span
+                                                                                                                                    aria-hidden="true">Next </span>
+                                                                                                                        </a>
+                                                                                                                  </li>
+                                                                                                                  {%   endif  %}
+
+                                                                                                                  {% if service.has_previous%}
+                                                                                                                  <li
+                                                                                                                        class="pager__item pager__item--last">
+                                                                                                                        <a href="?page={{ service.paginator.num_pages }}"
+                                                                                                                              title="Go to last page">
+                                                                                                                              <span
+                                                                                                                                    class="visually-hidden">Last
+                                                                                                                                    page</span>
+                                                                                                                              <span
+                                                                                                                                    aria-hidden="true">Last
+                                                                                                                                    »</span>
+                                                                                                                        </a>
+                                                                                                                  </li>
+                                                                                                                  {%  endif %}
+                                                                                                            </ul>
+                                                                                                      </nav>
+
+                                                                                                      <!-- Your existing HTML code continues here -->
+
+                                                                                                </div>
+                                                                                          </div>
+                                                                                    </div>
+                                                                              </div>
+
+
+                                                                        </div>
+                                                                  </div>
+                                                            </div>
+
+
+                                                      </div>
+                                                </div>
+
+                                          </div>
+
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+            </div>
+      </div>
+
+
+</div>
+</div>
+{%endblock%}

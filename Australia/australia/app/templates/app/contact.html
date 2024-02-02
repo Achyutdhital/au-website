@@ -1,0 +1,359 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Contact
+{% endblock %}
+{% block body %}
+
+<div class="breadcrumbs">
+  <div class="region region__breadcrumbs">
+
+    <div class="breadcrumb-content-inner">
+      <div class="gva-breadcrumb-content">
+        <div id="block-breadcrumbs"
+          class="text-light block gva-block-breadcrumb block-system block-system-breadcrumb-block no-title">
+         
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for item in contactImg %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <img src="{{ item.breadcrumb_img.url }}" class="d-block w-100" alt="{{ item.alt_text }}">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Home/Contact</h5>
+                    <p>{{ item.title }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div role="main" class="main main-page has-breadcrumb">
+
+  <div class="clearfix"></div>
+
+
+  <div class="help gav-help-region">
+    <div class="container">
+      <div class="content-inner">
+        <div class="region region__help">
+          <div data-drupal-messages-fallback class="hidden"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="clearfix"></div>
+
+  <div id="content" class="content content-full">
+    <div class="container-full container-bg">
+      <div class="content-main-inner">
+        <div id="page-main-content" class="main-content">
+          <div class="main-content-inner">
+            <div class="content-main">
+              <div class="region region__content">
+                <div id="block-mainpagecontent" class="block block-system block-system-main-block no-title">
+
+
+                  <div class="content block-content">
+                    <!-- Start Display article for detail page -->
+
+                    <div data-history-node-id="112" role="article" class="node node--type-page node--view-mode-full">
+                      <div class="header-title">
+                        <div class="container">
+                          <h2 class="title"><span>
+                              <span>Contact Us</span>
+                            </span></h2>
+                        </div>
+                      </div>
+                      <div class="node__content clearfix">
+                        <div class="gavias-builder--content">
+                          <div class="gbb-row-wrapper">
+                            <div class=" gbb-row  bg-size-cover el-26039051 " style="">
+                              <div class="">
+                                <div class="bb-container container">
+                                  <div class="row row-wrapper">
+                                    <div
+                                      class="gsc-column el-23017696 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12   ">
+                                      <div class="column-inner  bg-size-cover ">
+                                        <div class="column-content-inner">
+                                          <div class="widget gsc-image text-none ">
+                                            <div class="widget-content">
+                                             {% for item in contactImg|slice:"0:1"%} <img src="{{item.breadcrumb_img.url}}" style=" height:450px ;    width: -webkit-fill-available;"alt="" />{% endfor%}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                    <div
+                                      class="gsc-column el-93758078 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12   ">
+                                      <div class="column-inner  bg-size-cover ">
+                                        <div class="column-content-inner">
+
+                                          <div class="widget gsc-heading gsc-heading__align-left  style-1 pb-20"
+                                            style="max-width: 800px;">
+
+                                            <div class="gsc-heading__content clearfix">
+                                              <div class="gsc-heading__sub-title fweight-500 text-gray"><span>Contact
+                                                  with us</span></div>
+                                              <h2 class="gsc-heading__title fweight-600 text-black">
+                                                <span>Get in touch with us</span>
+                                              </h2>
+                                              <div class="gsc-heading__desc text-gray">
+                                                <p>{{info.description|safe|truncatewords:30}}</p>
+                                              </div>
+                                            </div>
+
+
+                                          </div>
+                                          <div class="clearfix"></div>
+
+
+
+
+
+
+
+
+
+                                          <div class="widget iconbox-seven__single text-dark">
+                                            <div class="iconbox-seven__wrap">
+                                              <div class="iconbox-seven__icon-inner"><span
+                                                  class="icon icon-t-telephone"></span></div>
+                                              <div class="iconbox-seven__content-inner">
+                                                <h3 class="iconbox-seven__title">Have any question?</h3>
+                                                <div class="iconbox-seven__desc">
+                                                  <p>Free +977 {{info.phone}}</p>
+                                                </div>
+                                              </div>
+                                              <a class="iconbox-seven__link" href="tel:+98(000)-9850"></a>
+                                            </div>
+                                          </div>
+
+
+
+
+
+
+
+
+
+
+                                          <div class="widget iconbox-seven__single text-dark">
+                                            <div class="iconbox-seven__wrap">
+                                              <div class="iconbox-seven__icon-inner"><span
+                                                  class="icon icon-t-email"></span></div>
+                                              <div class="iconbox-seven__content-inner">
+                                                <h3 class="iconbox-seven__title">Write email</h3>
+                                                <div class="iconbox-seven__desc">
+                                                  <p>{{info.email}}</p>
+                                                </div>
+                                              </div>
+                                              <a class="iconbox-seven__link" href="#" ></a>
+                                            </div>
+                                          </div>
+
+
+
+
+
+
+
+
+
+
+                                          <div class="widget iconbox-seven__single text-dark">
+                                            <div class="iconbox-seven__wrap">
+                                              <div class="iconbox-seven__icon-inner"><span
+                                                  class="icon icon-t-telephone"></span></div>
+                                              <div class="iconbox-seven__content-inner">
+                                                <h3 class="iconbox-seven__title">Visit anytime</h3>
+                                                <div class="iconbox-seven__desc">
+                                                  <p>{{info.location}}</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {% comment %} <div class="gbb-row-wrapper">
+                            <div class=" gbb-row  bg-size-cover el-85449417 " style="">
+                              <div class="bb-inner default">
+                                <div class="bb-container container">
+                                  <div class="row row-wrapper">
+                                    <div
+                                      class="gsc-column el-40605528 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12   column-style-3">
+                                      <div class="column-inner  bg-size-cover ">
+                                        <div class="column-content-inner">
+
+                                          <div class="widget gsc-heading gsc-heading__align-center  style-1 "
+                                            style="max-width: 800px;">
+
+                                            <div class="gsc-heading__content clearfix">
+                                              <div class="gsc-heading__sub-title fweight-500 "><span>Send us
+                                                  email</span></div>
+                                              <h2 class="gsc-heading__title fweight-600 ">
+                                                <span>Feel free to write</span>
+                                              </h2>
+                                            </div>
+
+
+                                          </div>
+                                          <div class="clearfix"></div>
+                                          <div
+                                            class=" clearfix widget gsc-block-drupal title-align-left  hidden-title-on remove-margin-on text-dark">
+                                            <div id="block-webform"
+                                              class="block block-webform block-webform-block no-title">
+
+
+                                              <div class="content block-content">
+                                                <form
+                                                  class="webform-submission-form webform-submission-add-form webform-submission-contact-form webform-submission-contact-add-form webform-submission-contact-node-112-form webform-submission-contact-node-112-add-form js-webform-details-toggle webform-details-toggle"
+                                                  data-drupal-selector="webform-submission-contact-node-112-add-form"
+                                                  action="https://previewthemes.com/notech/contact-us" method="post"
+                                                  id="webform-submission-contact-node-112-add-form"
+                                                  accept-charset="UTF-8">
+
+                                                  <div class="row js-form-wrapper form-wrapper"
+                                                    data-drupal-selector="edit-container" id="edit-container">
+                                                    <div
+                                                      class="col-xl-6 col-lg-6 col-md col-12 js-form-item form-item js-form-type-textfield form-item-name js-form-item-name">
+                                                      <label for="edit-name" class="js-form-required form-required">Your
+                                                        Name</label>
+                                                      <input data-drupal-selector="edit-name" type="text" id="edit-name"
+                                                        name="name" value="" size="60" maxlength="255"
+                                                        placeholder="Your Name" class="form-text required"
+                                                        required="required" aria-required="true" />
+
+                                                    </div>
+                                                    <div
+                                                      class="col-xl-6 col-lg-6 col-md col-12 js-form-item form-item js-form-type-email form-item-email js-form-item-email">
+                                                      <label for="edit-email"
+                                                        class="js-form-required form-required">Your Email</label>
+                                                      <input data-drupal-selector="edit-email" type="email"
+                                                        id="edit-email" name="email" value="" size="60" maxlength="254"
+                                                        placeholder="Your Email" class="form-email required"
+                                                        required="required" aria-required="true" />
+
+                                                    </div>
+                                                  </div>
+                                                  <div
+                                                    class="js-form-item form-item js-form-type-textfield form-item-subject js-form-item-subject">
+                                                    <label for="edit-subject"
+                                                      class="js-form-required form-required">Subject</label>
+                                                    <input data-drupal-selector="edit-subject" type="text"
+                                                      id="edit-subject" name="subject" value="" size="60"
+                                                      maxlength="255" placeholder="Subject" class="form-text required"
+                                                      required="required" aria-required="true" />
+
+                                                  </div>
+                                                  <div
+                                                    class="js-form-item form-item js-form-type-textarea form-item-message js-form-item-message">
+                                                    <label for="edit-message"
+                                                      class="js-form-required form-required">Message</label>
+                                                    <div>
+                                                      <textarea data-drupal-selector="edit-message" id="edit-message"
+                                                        name="message" rows="6" cols="60" placeholder="Message "
+                                                        class="form-textarea required" required="required"
+                                                        aria-required="true"></textarea>
+                                                    </div>
+
+                                                  </div>
+                                                  <div data-drupal-selector="edit-actions"
+                                                    class="form-actions webform-actions js-form-wrapper form-wrapper"
+                                                    id="edit-actions"><input
+                                                      class="webform-button--submit button button--primary js-form-submit form-submit"
+                                                      data-drupal-selector="edit-actions-submit" type="submit"
+                                                      id="edit-actions-submit" name="op" value="Send message" />
+
+                                                  </div>
+                                                  <input autocomplete="off"
+                                                    data-drupal-selector="form-vzmdja-fs-hf3axw0jkspd7ovpgggi1-uqmfxkq4fu"
+                                                    type="hidden" name="form_build_id"
+                                                    value="form-VzmdJA-fs-hF3axw0Jkspd7oVPgGGi1_-uqMfXkq4FU" />
+                                                  <input
+                                                    data-drupal-selector="edit-webform-submission-contact-node-112-add-form"
+                                                    type="hidden" name="form_id"
+                                                    value="webform_submission_contact_node_112_add_form" />
+
+
+
+                                                </form>
+
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div> {% endcomment %}
+
+                          <div class="pt--10">
+                            <iframe src="{{info.location_link}}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+</div>
+{%endblock%}

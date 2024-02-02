@@ -1,0 +1,318 @@
+
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Events
+{% endblock %}
+{% block body %}
+<div class="breadcrumbs">
+  <div class="region region__breadcrumbs">
+
+    <div class="breadcrumb-content-inner">
+      <div class="gva-breadcrumb-content">
+        <div id="block-breadcrumbs"
+          class="text-light block gva-block-breadcrumb block-system block-system-breadcrumb-block no-title">
+         
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for item in eventImg %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <img src="{{ item.breadcrumb_img.url }}" class="d-block w-100" alt="{{ item.alt_text }}">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Home/Event</h5>
+                    <p>{{ item.title }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div role="main" class="main main-page has-breadcrumb">
+
+  <div class="clearfix"></div>
+
+
+  <div class="help gav-help-region">
+    <div class="container">
+      <div class="content-inner">
+        <div class="region region__help">
+          <div data-drupal-messages-fallback class="hidden"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="clearfix"></div>
+
+  <div id="content" class="content content-full">
+    <div class="container-full container-bg">
+      <div class="content-main-inner">
+        <div id="page-main-content" class="main-content">
+          <div class="main-content-inner">
+            <div class="content-main">
+              <div class="region region__content">
+                <div id="block-mainpagecontent" class="block block-system block-system-main-block no-title">
+
+
+                  <div class="content block-content">
+                    <!-- Start Display article for detail page -->
+
+                    <div data-history-node-id="97" role="article" class="node node--type-page node--view-mode-full">
+                      <div class="header-title">
+                        <div class="container">
+                          <h2 class="title"><span>
+                              <span>Events</span>
+                            </span></h2>
+                        </div>
+                      </div>
+                      <div class="node__content clearfix">
+                        <div class="gavias-builder--content">
+                          <div class="gbb-row-wrapper">
+                            <div class=" gbb-row  bg-size-default el-30280823 "
+                              style="background-image:url('{% static 'app/sites/default/files/gbb-uploads/map.png'%}'); background-repeat:no-repeat; background-position:center bottom">
+                              <div class="">
+                                <div class="bb-container container">
+                                  <div class="row row-wrapper">
+                                    <div
+                                      class="gsc-column el-47760313 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12   ">
+                                      <div class="column-inner  bg-size-cover ">
+                                        <div class="column-content-inner">
+
+                                          <div class="widget gsc-heading gsc-heading__align-left  style-1 "
+                                            style="max-width: 800px;">
+
+                                            <div class="gsc-heading__content clearfix">
+                                              <h2 class="gsc-heading__title fweight-600 ">
+                                                <span>Events </span>
+                                              </h2>
+                                            </div>
+
+
+                                          </div>
+                                          <div class="clearfix"></div>
+                                          <div>
+                                            <div
+                                              class="widget block clearfix gsc-block-view  gsc-block-drupal block-view title-align-left  text-dark remove-margin-off">
+                                              <div class="views-element-container">
+                                                <div
+                                                  class="events-list gva-view js-view-dom-id-c1ee4bcca16955c00abf1e176c538f129d19bacde9fbe1bcb3d78cff06beedcd">
+
+
+
+
+
+
+
+
+                                                  <div data-drupal-views-infinite-scroll-content-wrapper
+                                                    class="views-infinite-scroll-content-wrapper clearfix">
+                                                    <div class="view-content-wrap">
+                                                      {% for item in event %}
+                                                      <div class="item">
+
+                                                        <!-- Start Display article for teaser page -->
+
+                                                        <div class="event-block-2">
+                                                          <div class="event-image text-center">
+
+                                                            <div
+                                                              class="field field--name-field-event-image field--type-image field--label-hidden field__item">
+                                                              <div class="item-image">
+                                                                <a href="{% url 'app:eventDetail' item.event_slug %}"><img loading="lazy" src="{{item.image.url}}" style="height:200px; width: -webkit-fill-available;"  alt="" />  </a>
+                                                              </div>
+                                                            </div>
+
+                                                            <div class="event-date" style="height: 50px;">
+                                                              <!-- <span class="date">{{item.starttime}}</span> -->
+                                                              <span class="month" style="color: brown; font:500px">{{item.startdate}}</span>
+                                                            </div>
+                                                          </div>
+                                                          <div class="content-inner clearfix">
+                                                            <div class="event-content-inner">
+                                                              <div class="event-content">
+                                                                <h3 class="post-title"><a href="{% url 'app:eventDetail' item.event_slug %}" rel="bookmark"> <span>{{item.eventname}}</span></a></h3>
+                                                                <div class="event-meta">
+                                                                  <span class="event-time"> {{item.starttime}} - {{item.endtime}}
+                                                                  </span>&nbsp;&nbsp;-&nbsp;&nbsp;<span
+                                                                    class="event-address"> {{item.location}} </span>
+                                                                </div>
+                                                                <div class="event-line"></div>
+                                                                <div class="event-description">
+                                                                 {{item.description|safe|truncatewords:20}}
+
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+
+
+                                                      </div>
+                                             {%endfor%}
+                                                    </div>
+                                                    <!-- Your existing HTML code -->
+
+<nav class="pager mt-4">
+  <ul class="pager__items js-pager__items">
+      {% for page_num in event.paginator.page_range %}
+          <li class="pager__item{% if page_num == event.number %} is-active{% endif %}">
+              <a href="?page={{ page_num }}" title="{% if page_num == event.number %}Current page{% else %}Go to page {{ page_num }}{% endif %}">
+                  <span class="visually-hidden">
+                      {% if page_num == event.number %}Current page{% else %}Page{% endif %}
+                  </span>{{ page_num }}</a>
+          </li>
+      {% endfor %}
+
+      {% if event.has_next %}
+          <li class="pager__item pager__item--next">
+              <a href="?page={{ event.next_page_number }}" title="Go to next page" rel="next">
+                  <span class="visually-hidden">Next page</span>
+                  <span aria-hidden="true">Next ›</span>
+              </a>
+          </li>
+      {% endif %}
+
+      {% if event.has_previous %}
+          <li class="pager__item pager__item--last">
+              <a href="?page={{ event.paginator.num_pages }}" title="Go to last page">
+                  <span class="visually-hidden">Last page</span>
+                  <span aria-hidden="true">Last »</span>
+              </a>
+          </li>
+      {% endif %}
+  </ul>
+</nav>
+
+<!-- Your existing HTML code continues here -->
+
+                                                  </div>
+
+
+
+
+
+
+
+
+
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                    <div
+                                      class="gsc-column el-16930985 col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 sidebar  ">
+                                      <div class="column-inner  bg-size-cover ">
+                                        <div class="column-content-inner">
+
+
+                                          <div class="block block-custom-text block-full">
+                                            <div class="block-content">
+                                              <div class="service-help__block">
+                                                <span class="service-help__bg">
+                                                  <img src="{% static 'app/themes/custom/notech/assets/images/contact-bg.jpg'%}" alt="">
+                                                </span>
+                                                <div class="service-help__icon">
+                                                  <img src="{% static 'app/themes/custom/notech/assets/images/comment-icon.png'%}" alt="">
+                                                </div>
+                                                <h2 class="service-help__title">Easy solutions <br> to your <br>
+                                                  problem</h2>
+                                                <div class="service-help__content">
+                                                  <p>Have any question?</p>
+                                                  <a href="tel:980009850"><span>Free:</span> {{info.phone}}</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div
+                                            class=" clearfix widget gsc-block-drupal title-align-left mt-30 hidden-title-on remove-margin-off text-dark">
+                                            <nav aria-labelledby="block-menuservices-menu" id="block-menuservices"
+                                              class="block block-menu navigation menu--menu-services">
+
+
+                                              <h2 id="block-menuservices-menu" class="block-title"><span>Services</span>
+                                              </h2>
+
+                                              <div class="block-content">
+
+                                             
+
+                                                <ul class="gva_menu">
+
+                                                  {% for item in service %}
+                                                  <li class="menu-item">
+                                                    <a href="{% url 'app:serviceDetail' item.service_slug %}"
+                                                      data-drupal-link-system-path="node/108">{{item.title}}</a>
+  
+                                                  </li>
+                                                  {% endfor%}
+                                                </ul>
+
+
+
+                                              </div>
+                                            </nav>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+</div>
+{%endblock%}

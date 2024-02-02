@@ -1,0 +1,127 @@
+{% extends 'app2/base.html' %}
+{% load static %}
+
+{% block title %} 
+    {% if instance %}Edit Event{% else %}Add Event{% endif %}
+{% endblock %}
+
+{% block body %}
+<title>{% if instance %}Edit Event{% else %}Add Event{% endif %}</title>
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">{% if instance %}Edit Event{% else %}Add Event{% endif %}</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <form method="post" enctype="multipart/form-data" action="{% if instance %}{% url 'dashboard:edit_Event'  instance.id %}{% else %}{% url 'dashboard:add_Event' %}{% endif %}">
+                {% csrf_token %}
+                {{form.media}}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <div class="alert alert-{{ msg.tags }} alert-dismissible text-bg-{{ msg.tags }} border-0 fade show" role="alert">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>{% if msg.tags == 'success' %}Success{% elif msg.tags == 'warning' %}Warning{% endif %} - </strong>{{ msg.message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="mb-3">
+                                            <label for="{{ form.eventname.id_for_label }}" class="form-label">Event Name</label>
+                                            <input type="text" name="{{ form.eventname.name }}" id="{{ form.eventname.id_for_label }}" class="form-control" required
+                                                value="{% if instance %}{{ instance.eventname }}{% endif %}" placeholder="Enter event name">
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label for="{{ form.location.id_for_label }}" class="form-label">Location</label>
+                                            <input type="text" name="{{ form.location.name }}" id="{{ form.location.id_for_label }}" class="form-control" required
+                                                value="{% if instance %}{{ instance.location }}{% endif %}" placeholder="Enter location">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="{{ form.startdate.id_for_label }}" class="form-label">Start Date</label>
+                                            <input type="date" name="{{ form.startdate.name }}" id="{{ form.startdate.id_for_label }}" class="form-control" required
+                                                value="{% if instance %}{{ instance.startdate }}{% endif %}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="{{ form.enddate.id_for_label }}" class="form-label">End Date</label>
+                                            <input type="date" name="{{ form.enddate.name }}" id="{{ form.enddate.id_for_label }}" class="form-control" required
+                                                value="{% if instance %}{{ instance.enddate }}{% endif %}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="{{ form.starttime.id_for_label }}" class="form-label">Start Time</label>
+                                            <input type="time" name="{{ form.starttime.name }}" id="{{ form.starttime.id_for_label }}" class="form-control" required
+                                                value="{% if instance %}{{ instance.starttime }}{% endif %}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="{{ form.endtime.id_for_label }}" class="form-label">End Time</label>
+                                            <input type="time" name="{{ form.endtime.name }}" id="{{ form.endtime.id_for_label }}" class="form-control" required
+                                                value="{% if instance %}{{ instance.endtime }}{% endif %}">
+                                        </div>
+
+                                    </div>
+                                        <div class="col-xl-6">
+
+                                        
+                                        <div class="mb-3">
+                                            <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+                                            {{ form.description }}
+                                        </div>
+                                        <div class="mb-3 mt-3 mt-xl-0">
+                                            <label for="{{ form.image.id_for_label }}" class="form-label">Image:</label>
+                                            <input type="file" name="{{ form.image.name }}" id="{{ form.image.id_for_label }}" class="form-control custom-class" {% if not instance %}required{% endif %} onchange="showPreview(this);">
+                                            <div id="imageContainer" style="width:auto">   
+                                                <img class="img-fluid" id="imagePreview" src="{% if instance %}{{ instance.image.url }}{% endif %}" alt="">
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card -->
+                    </div> <!-- end col -->
+
+                    <div class="col-auto">
+                        {% if instance %}
+                            <button type="submit" class="btn btn-danger chat-send waves-effect waves-light">Update</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-danger chat-send waves-effect waves-light">Add</button>
+                        {% endif %}
+                    </div>
+                </div> <!-- end row -->
+
+            </form>
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+</div> <!-- content-page -->
+
+{% endblock %}
